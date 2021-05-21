@@ -1,10 +1,28 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+      <Header />
+      <Slider />
+    <div class="container" style="width:80%">
+      <LandingSection />
+    </div>
+    <!-- <Search/>
+  > -->
+  <!-- <NavItem text="sport" color="#572589" textColor="white" :mark="false"/>   -->
+
+  <router-view />
 </template>
+<script>
+import NavItem from "./components/NavItem";
+import Header from "./components/Header";
+import Slider from "./components/Slider.vue";
+import Search from "./components/Search.vue";
+import Button from "./components/Button.vue";
+import LandingSection from "./components/LandingSection.vue";
+
+export default {
+  methods: {},
+  components: { NavItem, Header, Slider, Search, Button, LandingSection },
+};
+</script>
 
 <style>
 #app {
