@@ -1,8 +1,7 @@
 <template>
   <div class="card" style="width: 100%">
     <img
-      src="@/assets/Bitmap.png"
-      srcset="@/assets/Bitmap@2x.png 2x, @/assets/Bitmap@3x.png 3x"
+      :src="userWithIcon.source"
       class="img-fluid card-img-top"
       alt="Responsive image"
     />
@@ -13,10 +12,10 @@
         class="img-fluid rating-image"
         alt="Responsive image"
       />
-      <p class="-Numbers">4.9</p>
+      <p class="-Numbers">{{rate}}</p>
     </div>
     <div class="card-body">
-      <h1 class="card-text image mt-1">Subway Surfers @</h1>
+      <h1 class="card-text image mt-1">{{title}}</h1>
       <Button text="More Info"/>
     </div>
   </div>
@@ -25,7 +24,20 @@
 import Button from "./Button.vue";
 export default {
   components: { Button },
+  props:{
+    title:String,
+    source:String,
+    rate:Number
+  },
+  computed: {
+  userWithIcon () {
+    return {
+      source: this.source && require(`@/assets/${this.source}`)
+    }
+  }
+}
 };
+
 </script>
 <style scoped>
 .-Numbers {

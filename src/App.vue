@@ -1,36 +1,67 @@
 <template>
-      <Header />
-      <Slider style="position:relative" />
-    <div class="container mb-4" style="width:80%;box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.07); ">
-      <LandingSection />
-    </div>
-  
-      <Recommended />
-      <Popular/>
-      
+  <Header />
+  <Slider style="position: relative" />
+  <div
+    class="container mb-4"
+    style="width: 80%; box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.07)"
+  >
+    <LandingSection />
+  </div>
 
-    <!-- <Search/>
+  <Recommended />
+  <Popular :all="games"/>
+  <!-- <h1>{{ games }}</h1> -->
+
+  <!-- <Search/>
   > -->
   <!-- <NavItem text="sport" color="#572589" textColor="white" :mark="false"/>   -->
 
   <router-view />
 </template>
 <script>
+import { onMounted, ref } from "vue";
 import NavItem from "./components/NavItem";
 import Header from "./components/Header";
 import Slider from "./components/Slider.vue";
 import Search from "./components/Search.vue";
 import Button from "./components/Button.vue";
 import LandingSection from "./components/LandingSection.vue";
-import GameItem from "./components/GameItem.vue"
-import Recommended from './components/Recommended.vue';
-import Popular from './components/Popular.vue';
-import Login from './components/Login.vue';
-
+import GameItem from "./components/GameItem.vue";
+import Recommended from "./components/Recommended.vue";
+import Popular from "./components/Popular.vue";
+import Login from "./components/Login.vue";
+import axios from "axios";
 
 export default {
-  methods: {},
-  components: { NavItem, Header, Slider, Search, Button, LandingSection,GameItem, Recommended, Popular, Login},
+  data() {
+    return {
+      games: [],
+      filtered:[]
+    };
+  },
+  created() {
+    axios
+      .get(`https://my-json-server.typicode.com/php95/game-app/db`)
+      .then((res) => {
+        this.games = res.data.game;
+      });
+       this.filtered = this.games.filter((item) => {
+        item.popular;
+      })
+  },
+  components: {
+    NavItem,
+    Header,
+    Slider,
+    Search,
+    Button,
+    LandingSection,
+    GameItem,
+    Recommended,
+    Popular,
+    Login,
+    axios,
+  },
 };
 </script>
 

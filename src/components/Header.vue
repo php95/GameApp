@@ -60,9 +60,9 @@
 import Login from './Login.vue';
 import Logo from "./Logo.vue";
 import Search from "./Search.vue";
-
+import axios from 'axios';
 export default {
-  components: { Search, Logo,Login},
+  components: { Search, Logo,Login,axios},
   
     data() {
     return {
