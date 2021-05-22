@@ -1,5 +1,6 @@
 <template>
-  <div class="Rectangle-Copy">
+
+  <div class="Rectangle-Copy m-0 d-flex">
     <NavItem text="sport" :color="color" textColor="white" :mark="mark" />
     <NavItem text="sport" :color="color" textColor="white" :mark="mark" />
     <NavItem text="sport" :color="color" textColor="white" :mark="mark" />
@@ -40,19 +41,20 @@ export default {
 };
 </script>
 <style scoped>
-div {
-  display: flex;
+.row{
+  white-space: nowrap;
 }
-
 .Rectangle-Copy {
+ 
+  width:100%;
   margin-top:1%;
   overflow-x: auto;
   overflow-y: hidden;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: 0px; /* Firefox */
   scrollbar-color: transparent transparent !important;
-  width: 102%;
-  height: auto;
+
+  height: 80px;
   margin: -1px -11px 42px;
   padding: 14px 0 16px;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.07);

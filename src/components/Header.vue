@@ -1,5 +1,5 @@
 <template>
-  <div class="row" style="background-color:white;box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.07);display:relative">
+  <div class="row m-0" style="background-color:white;box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.07);display:relative">
     <div class="offset-1 col-lg-3 col-md-10">
       <Logo />
     </div>

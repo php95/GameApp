@@ -1,5 +1,5 @@
 <template>
-  <div class="row" style="background-color: white">
+  <div class="row mt-2" style="background-color: white">
     <div class="col-lg-7">
       <img
         src="@/assets/Bitmap.png"
