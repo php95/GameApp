@@ -12,11 +12,13 @@
         class="img-fluid rating-image"
         alt="Responsive image"
       />
-      <p class="-Numbers">{{rate}}</p>
+      <p class="-Numbers">{{ rate }}</p>
     </div>
     <div class="card-body">
-      <h1 class="card-text image mt-1" style="height: 42px;">{{title}}</h1>
-     <router-link :to="{name:'About',params:{id}}"> <Button text="More Info" /></router-link>
+      <h1 class="card-text image mt-1" style="height: 42px">{{ title }}</h1>
+      <router-link :to="{ name: 'About', params: { id } }">
+        <Button text="More Info"
+      /></router-link>
     </div>
   </div>
 </template>
@@ -24,22 +26,20 @@
 import Button from "./Button.vue";
 export default {
   components: { Button },
-  props:{
-    title:String,
-    source:String,
-    rate:Number,
-    id:Number
+  props: {
+    title: String,
+    source: String,
+    rate: Number,
+    id: Number,
   },
   computed: {
-  userWithIcon () {
-    return {
-      source: this.source && require(`@/assets/${this.source}`)
-    }
-  }
-}
-
+    userWithIcon() {
+      return {
+        source: this.source && require(`@/assets/${this.source}`),
+      };
+    },
+  },
 };
-
 </script>
 <style scoped>
 .-Numbers {
@@ -68,12 +68,12 @@ export default {
   background-color: #f2f2f2;
   position: absolute;
   display: flex;
-  margin:4%;
+  margin: 4%;
 }
 .card {
   border: 0px;
   padding-right: 4%;
-  display:relative;
+  display: relative;
 }
 .image {
   font-family: Tajawal;

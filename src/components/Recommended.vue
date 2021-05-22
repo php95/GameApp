@@ -31,7 +31,8 @@ export default {
   components: { GameItem },
   props:{
     recommend:Array
-  }
+  },
+  
 };
 </script>
 <style scoped>

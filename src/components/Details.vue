@@ -1,6 +1,5 @@
 <template>
-
- <div
+  <div
     class="container"
     style="
       width: 80%;
@@ -10,11 +9,9 @@
   >
     <div class="row mb-4">
       <img
-        src="@/assets/Bitmap@3x.png"
-        srcset="@/assets/Bitmap@2x.png 2x, @/assets/Bitmap@3x.png 3x"
-        class="img-fluid rating-image"
+        :src="userWithIcon.source"
+        class="img-fluid card-img-top"
         alt="Responsive image"
-        style="height: 209px"
       />
     </div>
     <div
@@ -25,9 +22,9 @@
       "
     >
       <div class="m-3 col-lg-6">
-        <p class="headTitle">{{accessData.title}}</p> 
-         <p class="subTitle">{{accessData.description}}</p>
-         <p class="downloads">{{accessData.downloads}} Downloads</p> 
+        <p class="headTitle">{{ accessData.title }}</p>
+        <p class="subTitle">{{ accessData.description }}</p>
+        <p class="downloads">{{ accessData.downloads }} Downloads</p>
         <!-- <p class="DASH-as-fast-as-you">
           DASH as fast as you can! DODGE the oncoming trains!
         </p>
@@ -53,35 +50,41 @@ export default {
     id: Number,
     game: Object,
   },
-  data(){
-    return{
-    game1:{}
-    }
+  data() {
+    return {
+      game1: {},
+    };
   },
-  computed:{
+  computed: {
     accessData() {
       const data = { ...this.game };
       return data;
-    }
-  }
+    },
 
-//   created(){
-//  this.game1 = this.game.find((item) => 
-//         item.id === +this.id 
-//       );
-      
-//   },
-//   computed: {
-//     filterById() {
-//       const game1 = this.game.find((item) => 
-//         item.id === +this.id 
-//       );
-//       return game1
-//     },
-//     loadData() {
-//      axios.get('http://localhost:8082/'+ this.selectedRoute)
-//               .then(response => (this.chosenRoute = response.data));
-// }
+    userWithIcon() {
+      return {
+        source: this.game.picture && require(`@/assets/${this.game.picture}`),
+      };
+    },
+  },
+
+  //   created(){
+  //  this.game1 = this.game.find((item) =>
+  //         item.id === +this.id
+  //       );
+
+  //   },
+  //   computed: {
+  //     filterById() {
+  //       const game1 = this.game.find((item) =>
+  //         item.id === +this.id
+  //       );
+  //       return game1
+  //     },
+  //     loadData() {
+  //      axios.get('http://localhost:8082/'+ this.selectedRoute)
+  //               .then(response => (this.chosenRoute = response.data));
+  // }
 
   // },
 };
