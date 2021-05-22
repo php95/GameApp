@@ -1,9 +1,9 @@
 <template>
-  <div class="row" style="background-color:white">
+  <div class="row" style="background-color:white;box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.07);display:relative">
     <div class="offset-1 col-lg-3 col-md-10">
       <Logo />
     </div>
-    <div class="offset-2 col-lg-4 mt-4 col-md-6 col-sm-8 col-8">
+    <div class="offset-2 col-lg-4 mt-4 col-md-6 col-sm-8 col-8 pt-3">
       <div class="form-group" v-show="toggle">
         <input
           type="text"
@@ -13,7 +13,7 @@
         />
       </div>
     </div>
-    <div class="col-lg-1 col-md-2 mt-4 col-sm-2 col-2">
+    <div class="col-lg-1 col-md-2 mt-4 col-sm-2 col-2 pt-3">
       <i
         @click="showInput()"
         class="fas fa-times"
@@ -38,26 +38,44 @@
           @/assets/Searchicons/Dots@2x.png 2x,
           @/assets/Searchicons/Dots@3x.png 3x
         "
+        @click="showLogin()"
       />
+      
     </div>
   </div>
+    <Login style="
+    border-radius: 5px;
+    position: absolute;
+    margin-top:-2%;
+    width: 35%;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 7%) 0px 2px 10px 0px;
+    margin-left: 55%;
+    z-index: 1;"
+    v-show="logForm"/>
 </template>
 
 
 <script>
+import Login from './Login.vue';
 import Logo from "./Logo.vue";
 import Search from "./Search.vue";
 
 export default {
-  components: { Search, Logo },
-  data() {
+  components: { Search, Logo,Login},
+  
+    data() {
     return {
-      toggle: true,
+      toggle: false,
+      logForm: false
     };
   },
   methods: {
     showInput() {
       this.toggle = !this.toggle;
+    },
+    showLogin() {
+      this.logForm = !this.logForm;
     },
   },
 };

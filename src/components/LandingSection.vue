@@ -15,7 +15,7 @@
         SURF the urban wave! <br />Dodge the incoming <br>
       </h3>
       <h6 class="downloads">300k Downloads</h6>
-      <Button style="width: 100%" />
+      <Button style="width: 100%" text = "More Info"/>
     </div>
   </div>
 </template>
@@ -44,7 +44,7 @@ export default {
   margin:1px;
 }
 .subTitle {
-    width: 100%;
+  width: 100%;
   font-family: Tajawal;
   font-size: 14.4px;
   font-weight: normal;

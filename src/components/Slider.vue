@@ -45,13 +45,14 @@ div {
 }
 
 .Rectangle-Copy {
+  margin-top:1%;
   overflow-x: auto;
   overflow-y: hidden;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: 0px; /* Firefox */
   scrollbar-color: transparent transparent !important;
-  width: 1366px;
-  height: 60px;
+  width: 102%;
+  height: auto;
   margin: -1px -11px 42px;
   padding: 14px 0 16px;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.07);
