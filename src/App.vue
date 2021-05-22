@@ -1,10 +1,79 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <Header />
+  <Slider style="position: relative" />
+  <!-- <h1>{{ games }}</h1> -->
+
+  <!-- <Search/>
+  > -->
+  <!-- <NavItem text="sport" color="#572589" textColor="white" :mark="false"/>   -->
+
+  <router-view :games="games" :filter="getPopular" :recommended="getRecommend"/>
 </template>
+<script>
+import { onMounted, ref } from "vue";
+import NavItem from "./components/NavItem";
+import Header from "./components/Header";
+import Slider from "./components/Slider.vue";
+import Search from "./components/Search.vue";
+import Button from "./components/Button.vue";
+import LandingSection from "./components/LandingSection.vue";
+import GameItem from "./components/GameItem.vue";
+import Recommended from "./components/Recommended.vue";
+import Popular from "./components/Popular.vue";
+import Login from "./components/Login.vue";
+import axios from "axios";
+import Details from './components/Details.vue';
+
+export default {
+  data() {
+    return {
+      games: [],
+      filtered:[],
+      recommended:[]
+    };
+  },
+  created() {
+    axios
+      .get(`https://my-json-server.typicode.com/php95/game-app/db`)
+      .then((res) => {
+        this.games = res.data.game;
+      });
+  },
+  computed:{
+    getPopular(){
+       const filtering = this.games.filter((item) => 
+        item.popular == "true"
+      )
+      return filtering;
+    },
+    getRecommend()
+    {
+       const reccommending = this.games.filter((item) => 
+        item.recommend == "true"
+      )
+      return reccommending;
+
+    }
+    
+
+  },
+  components: {
+    NavItem,
+    Header,
+    Slider,
+    Search,
+    Button,
+    LandingSection,
+    GameItem,
+    Recommended,
+    Popular,
+    Login,
+    axios,
+    Details
+  },
+};
+
+  </script>
 
 <style>
 #app {
