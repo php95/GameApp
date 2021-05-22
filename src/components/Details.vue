@@ -12,6 +12,7 @@
         :src="userWithIcon.source"
         class="img-fluid card-img-top"
         alt="Responsive image"
+        style="height:209px"
       />
     </div>
     <div
@@ -25,26 +26,22 @@
         <p class="headTitle">{{ accessData.title }}</p>
         <p class="subTitle">{{ accessData.description }}</p>
         <p class="downloads">{{ accessData.downloads }} Downloads</p>
-        <!-- <p class="DASH-as-fast-as-you">
-          DASH as fast as you can! DODGE the oncoming trains!
-        </p>
-        <p class="DASH-as-fast-as-you">
-          Help Jake, Tricky & Fresh escape from the grumpy Inspector and his
-          dog.
-        </p>
-        <p class="DASH-as-fast-as-you">
-          ★ Grind trains with your cool crew!<br />
-          ★ Colorful and vivid HD graphics!<br />
-        </p>
-        <p class="mt-3 text-left">
-          <a href="#" class="-Link"> Read more </a>
-        </p> -->
+       
       </div>
+    </div>
+    <div class="row"
+      style="
+        background-color: white;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.07);"
+        >
+
     </div>
   </div>
 </template>
 <script>
+import Recommended from './Recommended.vue';
 export default {
+  components: { Recommended },
   name: "Details",
   props: {
     id: Number,

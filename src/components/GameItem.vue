@@ -1,4 +1,5 @@
 <template>
+
   <div class="card" style="width: 100%">
     <img
       :src="userWithIcon.source"

@@ -1,8 +1,12 @@
 <template>
   <div class="about">
     <!-- <h1>{{id}} and {{games}}</h1> -->
+    <div class="row">
     <Details :id="id" :game="filterById" />
-    <Recommended :recommend="recommended"/>
+    </div>
+    <div class="row">
+    <Recommended :recommend="recommended" style="margin-top:18%"/>
+    </div>
   </div>
 </template>
 <script>

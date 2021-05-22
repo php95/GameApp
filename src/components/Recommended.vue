@@ -1,5 +1,5 @@
 <template>
-  <div class="container mb-4" style="width: 80%;box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.07);">
+  <div class="container mb-4" style="width: 80%;box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.07); position:static">
     <div class="row" style="background-color: white">
       <div class="col-lg-4">
         <h6 class="text-recommend text-left">Most Reccomendation</h6>
