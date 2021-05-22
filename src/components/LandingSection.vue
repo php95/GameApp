@@ -15,7 +15,9 @@
         SURF the urban wave! <br />Dodge the incoming <br />
       </p>
       <p class="downloads">300k Downloads</p>
+       <router-link :to="{ name: 'About', params: { id } }">
       <Button style="width: 75%; margin-right: 21%" text="More Info" />
+       </router-link>
     </div>
   </div>
 </template>
@@ -24,6 +26,11 @@ import Button from "./Button.vue";
 
 export default {
   components: { Button },
+  data(){
+    return{
+      id:1
+    }
+  }
 };
 </script>
 

@@ -1,13 +1,13 @@
 <template>
   <div
-    class="container"
+    class="container mt-4"
     style="
       width: 80%;
       height: 209px;
       box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.07);
     "
   >
-    <div class="row mb-4">
+    <div class="row mb-4 ">
       <img
         :src="userWithIcon.source"
         class="img-fluid card-img-top"
