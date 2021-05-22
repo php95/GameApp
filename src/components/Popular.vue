@@ -35,6 +35,9 @@
 import GameItem from "./GameItem.vue";
 export default {
   components: { GameItem },
+  props:{
+      all : Array 
+  }
 };
 </script>
 <style scoped>
