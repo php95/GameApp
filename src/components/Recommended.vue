@@ -13,21 +13,15 @@
       </div>
     </div>
     <div class="row" style="background-color: white;justify-content:space-evenly">
-      <div class="col-lg-2">
-        <GameItem />
-      </div>
-      <div class="col-lg-2">
-        <GameItem />
-      </div>
-      <div class="col-lg-2">
-        <GameItem />
-      </div>
-      <div class="col-lg-2">
-        <GameItem />
-      </div>
-      <div class="col-lg-2">
-        <GameItem class="game-item" />
-      </div>
+       <div class="col-lg-2" v-for="item in recommend" :key="item.id">
+        <GameItem
+          :title="item.title"
+          :source="item.picture"
+          :rate="item.rate"
+          :id="item.id"
+          class="game-item"
+        />
+       </div>
     </div>
   </div>
 </template>
@@ -35,6 +29,9 @@
 import GameItem from "./GameItem.vue";
 export default {
   components: { GameItem },
+  props:{
+    recommend:Array
+  }
 };
 </script>
 <style scoped>

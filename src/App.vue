@@ -1,22 +1,13 @@
 <template>
   <Header />
   <Slider style="position: relative" />
-  <div
-    class="container mb-4"
-    style="width: 80%; box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.07)"
-  >
-    <LandingSection />
-  </div>
-
-  <Recommended />
-  <Popular :all="games"/>
   <!-- <h1>{{ games }}</h1> -->
 
   <!-- <Search/>
   > -->
   <!-- <NavItem text="sport" color="#572589" textColor="white" :mark="false"/>   -->
 
-  <router-view />
+  <router-view :games="games" :filter="getPopular" :recommended="getRecommend"/>
 </template>
 <script>
 import { onMounted, ref } from "vue";
@@ -31,12 +22,14 @@ import Recommended from "./components/Recommended.vue";
 import Popular from "./components/Popular.vue";
 import Login from "./components/Login.vue";
 import axios from "axios";
+import Details from './components/Details.vue';
 
 export default {
   data() {
     return {
       games: [],
-      filtered:[]
+      filtered:[],
+      recommended:[]
     };
   },
   created() {
@@ -45,9 +38,24 @@ export default {
       .then((res) => {
         this.games = res.data.game;
       });
-       this.filtered = this.games.filter((item) => {
-        item.popular;
-      })
+  },
+  computed:{
+    getPopular(){
+       const filtering = this.games.filter((item) => 
+        item.popular == "true"
+      )
+      return filtering;
+    },
+    getRecommend()
+    {
+       const reccommending = this.games.filter((item) => 
+        item.recommend == "true"
+      )
+      return reccommending;
+
+    }
+    
+
   },
   components: {
     NavItem,
@@ -61,9 +69,11 @@ export default {
     Popular,
     Login,
     axios,
+    Details
   },
 };
-</script>
+
+  </script>
 
 <style>
 #app {

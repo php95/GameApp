@@ -15,8 +15,8 @@
       <p class="-Numbers">{{rate}}</p>
     </div>
     <div class="card-body">
-      <h1 class="card-text image mt-1">{{title}}</h1>
-      <Button text="More Info"/>
+      <h1 class="card-text image mt-1" style="height: 42px;">{{title}}</h1>
+     <router-link :to="{name:'About',params:{id}}"> <Button text="More Info" /></router-link>
     </div>
   </div>
 </template>
@@ -27,7 +27,8 @@ export default {
   props:{
     title:String,
     source:String,
-    rate:Number
+    rate:Number,
+    id:Number
   },
   computed: {
   userWithIcon () {
@@ -36,6 +37,7 @@ export default {
     }
   }
 }
+
 };
 
 </script>

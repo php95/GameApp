@@ -19,16 +19,15 @@
       class="row"
       style="background-color: white; justify-content: space-evenly"
     >
-      <div class="col-lg-2" v-for="item in all" :key="item.id">
+      <div class="col-lg-2" v-for="item in filter" :key="item.id">
         <GameItem
           :title="item.title"
           :source="item.picture"
           :rate="item.rate"
+          :id="item.id"
           class="game-item"
         />
       </div>
-
-    
     </div>
   </div>
 </template>
@@ -38,35 +37,25 @@ export default {
   components: { GameItem },
   props: {
     all: Array,
+    filter : Array
   },
-
-//   methods: {
-//     filterByPopular() {
-//       this.all.filter((item) => {
-//         item.popular === true;
-//       });
-//     },
-//   },
-  //   created() {
-  //     this.filterByPopular();
-  //   },
-//   computed: {
-//     getfiltered() {
-//       console.log(this.all);
-//       const res = this.all.filter((item) => {
-//         item.popular;
-//       });
-//       return res;
-//     },
-//   },
-computed: {
-  userWithIcon () {
-    return {
-      ...this.all, 
-      source: this.all.source && require(`../assets/${this.all.source}`)
+  data(){
+    return{
+      popula:[]
     }
+  },
+  computed: {
+    
+  },
+  created(){
+      const popul = this.all.filter(
+        item => item.popular === true
+      );
+      this.popula =popul
+    
+
   }
-}
+
 };
 </script>
 <style scoped>
@@ -80,8 +69,8 @@ computed: {
 .text-recommend {
   padding-top: 5%;
   padding-bottom: 3%;
-  text-align: left;
-  padding-left: 8%;
+  text-align:left;
+  padding-left:8%
 }
 .-Link {
   padding-left: 53%;
